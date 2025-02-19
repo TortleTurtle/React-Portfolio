@@ -30,6 +30,9 @@ nav > img {
 
 main {
     padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 /* entry styling */
@@ -81,4 +84,5 @@ main {
 }
 .entry__description {
     font-weight: 400;
+    max-width: 75ch;
 }
