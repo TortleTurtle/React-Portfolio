@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+
+    font-family: "Inter", serif;
+    color: #000000;
+
+    background-color: #FAFAF8;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1.6rem;
+
+    color: #000000;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px #0000001A;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+nav > img {
+    height: 2.5rem;
+}
+nav > h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 18px;
+}

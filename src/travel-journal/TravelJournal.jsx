@@ -3,7 +3,7 @@ import Entry from "./components/Entry.jsx";
 import data from "./data.js"
 import "./index.css";
 
-function App() {
+function TravelJournal() {
 
     const entries = data.map((entry) => {
         return <Entry
@@ -22,4 +22,4 @@ function App() {
     )
 }
 
-export default App
+export default TravelJournal
