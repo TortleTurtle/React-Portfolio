@@ -123,3 +123,11 @@ section {
     border: none;
     border-radius: 8px;
 }
+.suggested-recipe-container {
+    color: #475467;
+    font-weight: 400;
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+    margin-bottom: 8px;
+}

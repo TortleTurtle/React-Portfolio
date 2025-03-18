@@ -1,10 +1,9 @@
 import ChefClaude from "./chef-claude/ChefClaude.jsx";
+import {useState} from "react";
 // import './index.css'
 
-function App() {
-
+export default function App() {
     return (
-        <ChefClaude />
+        <ChefClaude/>
     )
 }
-export default App
