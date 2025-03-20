@@ -1,9 +1,9 @@
-import ChefClaude from "./chef-claude/ChefClaude.jsx";
 import {useState} from "react";
+import MemeGenerator from "./meme-generator/MemeGenerator.jsx";
 // import './index.css'
 
 export default function App() {
     return (
-        <ChefClaude/>
+        <MemeGenerator/>
     )
 }
