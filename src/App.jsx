@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react";
-import MemeGenerator from "./meme-generator/MemeGenerator.jsx";
+import ChefClaude from "./chef-claude/ChefClaude.jsx";
 // import './index.css'
 
 export default function App() {
 
     return (
-        <MemeGenerator/>
+        <ChefClaude />
     )
 }
