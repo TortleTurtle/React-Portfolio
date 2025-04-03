@@ -1,52 +1,51 @@
-import {useEffect, useState} from "react";
-import Dice from "./components/Dice.jsx";
+import {useEffect, useRef, useState} from "react";
+import Die from "./components/Die.jsx";
+import "./index.css"
 
 export default function Tenzies() {
-    const [dices, setDices] = useState(() => generateNewDices())
+    const [dice, setDice] = useState(() => generateNewDice())
+
+    const rollButton = useRef(null);
+
+    const hasWon = checkDice();
 
     useEffect(() => {
-        function checkDice(){
-            let prevDiceValue = undefined;
-            for (let i = 0; i < dices.length; i++) {
-                if (i === 0) {
-                    prevDiceValue = dices[i].eyes;
-                    continue;
-                }
-
-                if (prevDiceValue !== dices[i].eyes) return false;
-            }
-            console.log("check is true!");
-            return true
+        if (hasWon) {
+            rollButton.current.focus();
+            console.log("You have won!")
         }
+    }, [hasWon]);
 
-        if (checkDice()) {
-            console.log("YOU WON!");
+    function checkDice(){
+        for (let i = 0; i < dice.length; i++) {
+            if (i === 0) continue;
+            if (dice[i].eyes !== dice[0].eyes) return false;
         }
-    }, [dices])
+        return true
+    }
 
-    function generateNewDices(){
+    function generateNewDice(){
         return Array(10)
             .fill(0)
             .map(() => {
                 return {
-                    eyes: Math.floor(Math.random() * 6),
+                    eyes: Math.ceil(Math.random() * 6),
                     hold: false
                 }
             });
     }
-
-    function rerollDices() {
-        setDices(dices.map((dice) => {
+    function rollDice() {
+        setDice(dice.map((dice) => {
             if (dice.hold) return dice;
             return {
-                eyes: Math.floor(Math.random() * 6),
+                eyes: Math.ceil(Math.random() * 6),
                 hold: false
             }
         }))
     }
 
     function toggleHoldDice(diceIndex) {
-        setDices(dices.map((dice, index) => {
+        setDice(dice.map((dice, index) => {
             if (index === diceIndex) {
                 return {
                     eyes: dice.eyes,
@@ -57,22 +56,32 @@ export default function Tenzies() {
             }
         }))
     }
+    function restartGame() {
+        setDice(() => generateNewDice());
+    }
 
     function renderDiceComponents() {
-        return dices.map((dice, index) =>
-            <Dice key={index}
-                  index = {index}
-                  eyes={dice.eyes}
-                  hold={dice.hold}
-                  onDiceClicked={toggleHoldDice}/>)
+        return dice.map((dice, index) =>
+            <Die key={index}
+                 index={index}
+                 eyes={dice.eyes}
+                 hold={dice.hold}
+                 onDiceClicked={toggleHoldDice}/>)
     }
 
     return (
         <main>
-            <h1>Tenzies</h1>
-            <p>Roll until all dice have the same number of eyes</p>
-            <div>{renderDiceComponents()}</div>
-            <button onClick={() => rerollDices()}>Reroll dice!</button>
+            <section>
+                <h1>Tenzies</h1>
+                <p>Roll until all dice have the same number of eyes</p>
+                <div className={"diceButtons"}>{renderDiceComponents()}</div>
+                <button id={"rollButton"}
+                        ref={rollButton}
+                        aria-label={hasWon ? "Start a new game" : "roll not held dice"}
+                        onClick={() => hasWon ? restartGame(): rollDice()}>
+                    {hasWon ? "Restart" : "Roll"}
+                </button>
+            </section>
         </main>
     )
 }
