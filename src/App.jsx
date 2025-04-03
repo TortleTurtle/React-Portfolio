@@ -1,10 +1,8 @@
-import {useState, useEffect} from "react";
-import Tenzies from "./tenzies/Tenzies.jsx";
-// import './index.css'
+import AssemblyGame from "./assembly-game/AssemblyGame.jsx";
 
 export default function App() {
 
     return (
-        <Tenzies />
+        <AssemblyGame />
     )
 }
