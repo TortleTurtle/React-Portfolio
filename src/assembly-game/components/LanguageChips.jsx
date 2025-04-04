@@ -1,12 +1,14 @@
-import languages from "../assets/languages.js";
-
-export default function LanguageChips() {
-    const chips = languages.map((language, index) =>
-        <span key={language.name}
-             className={"language_chips--chip"}
-             style={{ backgroundColor: language.backgroundColor, color: language.color }}>
-            {language.name}
-        </span>
+export default function LanguageChips(props) {
+    const chips = props.languages.map((language, index) => {
+        const isDead = index < props.wrongGuesses;
+        const style = isDead ? "language_chips--chip language_chips--chip-dead" : "language_chips--chip";
+        return (
+            <span key={language.name}
+                  className={style}
+                  style={{backgroundColor: language.backgroundColor, color: language.color}}>
+                {language.name}
+            </span>
+        )}
     )
 
     return (

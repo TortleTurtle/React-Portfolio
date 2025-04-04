@@ -1,8 +1,10 @@
 export default function WordDisplay(props) {
     let letters = []
     for (let i = 0; i < props.word.length; i++) {
+        const char = props.word[i];
+        const showLetter = props.guessedLetters.includes(char);
         letters.push(
-            <span key={i} className="word_display--letter">{props.word[i].toUpperCase()}</span>
+            <span key={i} className="word_display--letter">{showLetter ? char.toUpperCase() : ""}</span>
         )
     }
 
