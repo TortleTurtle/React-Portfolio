@@ -3,13 +3,13 @@ export function MessageBox(props) {
     //Finally found a (completely unnecessary) use case for var.
     switch (props.type) {
         case messageTypes.SUCCESS:
-            var modifier = "messageBox-success"; // this works because the var declaration gets 'hoisted'
+            var modifier = "message_box-success"; // this works because the var declaration gets 'hoisted'
             break;
         case messageTypes.ERROR:
-            modifier = "messageBox-error";
+            modifier = "message_box-error";
             break;
         case messageTypes.INFO:
-            modifier = "messageBox-info";
+            modifier = "message_box-info";
             break;
         default:
             modifier = "";
@@ -17,7 +17,10 @@ export function MessageBox(props) {
     }
 
     return (
-        <section className={"messageBox " + modifier}>
+        <section className={"message_box " + modifier}
+                 aria-live="polite"
+                 role="status"
+        >
             {props.title && <h2>{props.title}</h2>}
             {props.subtitle && <p>{props.subtitle}</p>}
         </section>

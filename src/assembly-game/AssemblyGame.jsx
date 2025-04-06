@@ -1,62 +1,80 @@
 import LanguageChips from "./components/LanguageChips.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MessageBox, messageTypes} from "./components/MessageBox.jsx";
 import WordDisplay from "./components/WordDisplay.jsx";
 import Keyboard from "./components/Keyboard.jsx";
-import languages from "./assets/languages.js";
-import getFarewellMessage from "./assets/farewellMessage.js";
+import Confetti from "react-confetti";
+import {getFarewellText, languages, getRandomWord} from "./assets/utils.js";
 import './index.css'
 
 export default function AssemblyGame() {
-    /*
-    *  TODO: Handle win or lose
-    *    - drop confetti on win
-    *
-    *  TODO: New Game
-    *   - get new random word
-    *   - reset guessedLetters to an empty array.
-    * */
-    const [word, setWord] = useState("react");
+    const [word, setWord] = useState(() => getRandomWord()); //lazy initialization.
     const [guessedLetters, setGuessedLetters] = useState([]);
+    const [message, setMessage] = useState({});
+    const [viewport, setViewport] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
 
     const wrongGuessCount = guessedLetters.filter(letter => !word.includes(letter)).length;
     const hasLost = wrongGuessCount >= 8;
     const hasWon = word.split("").every(letter => guessedLetters.includes(letter));
+    const gameOver = hasLost || hasWon;
 
-    const message = setMessage();
+    useEffect(() => {
+        const handleResize = () => {
+            setViewport({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
 
-    function setMessage() {
-        if (hasLost) return {
-            title: "You Lost!",
-            subtitle: "Better start learning assembly",
-            type: messageTypes.ERROR
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
         }
-        if (hasWon) return {
-            title: "You Won!",
-            subtitle: "Well Done!",
-            type: messageTypes.SUCCESS,
+    }, []);
+
+    useEffect(() => {
+        function configMessage() {
+            if (hasLost) return {
+                title: "You Lost!",
+                subtitle: "Better start learning assembly",
+                type: messageTypes.ERROR
+            }
+            if (hasWon) return {
+                title: "You Won!",
+                subtitle: "Well Done!",
+                type: messageTypes.SUCCESS,
+            }
+            if (wrongGuessCount > 0) return {
+                title: "",
+                subtitle: getFarewellText(languages[wrongGuessCount - 1].name),
+                type: messageTypes.INFO
+            }
+            return {
+                title: "",
+                subtitle: "",
+                type: messageTypes.NONE
+            }
         }
-        if (wrongGuessCount > 0) return {
-            title: "",
-            subtitle: getFarewellMessage(languages[wrongGuessCount - 1].name),
-            type: messageTypes.INFO
-        }
-        return {
-            title: "",
-            subtitle: "",
-            type: messageTypes.NONE
-        }
-    }
+        setMessage(configMessage());
+    }, [hasWon, hasLost, wrongGuessCount]);
 
     function guessLetter(letter) {
-        if (hasLost || hasWon) return;
+        if (gameOver) return;
         if (guessedLetters.includes(letter)) return;
 
         setGuessedLetters(prevState => [...prevState, letter]);
     }
 
+    function newGame(){
+        if (!gameOver) return;
+        setWord(getRandomWord());
+        setGuessedLetters([]);
+    }
+
     return (
         <main>
+            { hasWon && <Confetti width={viewport.width} height={viewport.height}/>}
             <section className="header">
                 <h1>Assembly Endgame</h1>
                 <p>Guess the word in under 8 guesses to keep the world safe from assembly!</p>
@@ -65,11 +83,15 @@ export default function AssemblyGame() {
             <LanguageChips languages={languages}
                            wrongGuesses={wrongGuessCount}/>
             <WordDisplay word={word}
-                         guessedLetters={guessedLetters}/>
+                         guessedLetters={guessedLetters}
+                         wrongGuessCount={wrongGuessCount}
+                         hasLost={hasLost}/>
             <Keyboard word={word}
                       guessedLetters={guessedLetters}
+                      gameOver={gameOver}
                       onKeyPress={guessLetter}/>
-            {(hasLost || hasWon) && <button id="newGameBtn">New Game</button>}
+            {(gameOver) && <button id="newGameBtn"
+                                   onClick={() => newGame()}>New Game</button>}
         </main>
     )
 }

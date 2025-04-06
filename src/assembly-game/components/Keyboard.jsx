@@ -15,7 +15,9 @@ export default function Keyboard(props) {
             buttons.push(
                 <button key={char}
                         className={style}
-                        disabled={hasBeenGuessed}
+                        disabled={hasBeenGuessed || props.gameOver}
+                        aria-disabled={hasBeenGuessed || props.gameOver}
+                        aria-label={`Letter ${char}`}
                         onClick={() => !hasBeenGuessed && props.onKeyPress(char)}>
                     {char.toUpperCase()}
                 </button>

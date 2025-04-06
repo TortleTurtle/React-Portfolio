@@ -17,7 +17,7 @@ main {
     gap: 1rem;
 }
 
-.header, .messageBox {
+.header, .message_box {
     max-width: 75ch;
 }
 
@@ -30,7 +30,7 @@ main {
     font-size: 1rem;
 }
 
-.messageBox {
+.message_box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,23 +42,23 @@ main {
     border: none;
     border-radius: 5px;
 }
-.messageBox-success {
+.message_box-success {
     background: #10A95B;
 }
-.messageBox-error {
+.message_box-error {
     background: #BA2A2A;
 }
-.messageBox-info {
+.message_box-info {
     font-style: italic;
     background: #7A5EA7;
 }
 
-.messageBox > h2 {
+.message_box > h2 {
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0;
 }
-.messageBox > p {
+.message_box > p {
     font-size: 1rem;
     margin: 0;
 }
@@ -114,6 +114,10 @@ main {
     background: #323232;
     border-bottom: 2px solid #F9F4DA;
 }
+.word_display--letter-error {
+    color: #BA2A2A;
+}
+
 .keyboard--key {
     color: #000000;
     font-family: inherit;
@@ -142,4 +146,15 @@ main {
     background: #11B5E5;
     border: 1px solid #D7D7D7;
     border-radius: 5px;
+}
+
+.sr_only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
 }
