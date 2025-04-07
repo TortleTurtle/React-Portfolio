@@ -1,20 +1,17 @@
-* {
-    box-sizing: border-box;
-}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-body {
+    min-height: 100vh;
+
     background: #172554;
 
     font-family: "Inter", sans-serif;
     color: #000000;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-}
-
-section {
+.section {
     max-width: 600px;
     padding: 1rem 2rem;
     text-align: center;
@@ -53,7 +50,7 @@ section {
     background: palegreen;
 }
 
-#rollButton {
+.rollButton {
     font-family: inherit;
     font-size: 1rem;
     font-weight: 400;
@@ -65,9 +62,9 @@ section {
     border: none;
     border-radius: 5px;
 }
-#rollButton:hover, #rollButton:focus {
+.rollButton:hover, .rollButton:focus {
     outline: solid 3px lightblue;
 }
-#rollButton:hover {
+.rollButton:hover {
     cursor: pointer;
 }

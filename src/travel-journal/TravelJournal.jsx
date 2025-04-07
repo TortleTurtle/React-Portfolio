@@ -1,7 +1,7 @@
 import Header from "./components/Header.jsx";
 import Entry from "./components/Entry.jsx";
 import data from "./data.js"
-import "./index.css";
+import styles from "./TravelJournal.module.css";
 
 function TravelJournal() {
 
@@ -15,7 +15,7 @@ function TravelJournal() {
     return (
         <>
             <Header/>
-            <main>
+            <main className={styles.main}>
                 {entries}
             </main>
         </>

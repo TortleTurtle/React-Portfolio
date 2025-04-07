@@ -5,7 +5,7 @@ import WordDisplay from "./components/WordDisplay.jsx";
 import Keyboard from "./components/Keyboard.jsx";
 import Confetti from "react-confetti";
 import {getFarewellText, getRandomWord, languages} from "./assets/utils.js";
-import './index.css'
+import styles from './AssemblyGame.module.css'
 
 export default function AssemblyGame() {
     const [word, setWord] = useState(() => getRandomWord()); //lazy initialization.
@@ -63,13 +63,13 @@ export default function AssemblyGame() {
         setGuessedLetters([]);
     }
 
-    return (<main>
+    return (<main className={styles.main}>
             {hasWon && <Confetti
                 width={viewport.width}
                 height={viewport.height}
                 recycle={false}
                 numberOfPieces={1000}/>}
-            <section className="header">
+            <section className={styles.header}>
                 <h1>Assembly Endgame</h1>
                 <p>Guess the word in under 8 guesses to keep the world safe from assembly!</p>
             </section>
@@ -84,7 +84,7 @@ export default function AssemblyGame() {
                       guessedLetters={guessedLetters}
                       gameOver={gameOver}
                       onKeyPress={guessLetter}/>
-            {(gameOver) && <button id="newGameBtn"
+            {(gameOver) && <button className={styles.newGameBtn}
                                    onClick={() => newGame()}>New Game</button>}
         </main>)
 }

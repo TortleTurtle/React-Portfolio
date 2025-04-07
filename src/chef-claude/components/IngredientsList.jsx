@@ -1,25 +1,34 @@
-export default function IngredientsList({ref, ingredients, generateRecipe}) {
+import styles from '../ChefClaude.module.css'
 
-    const ingredientsListItems = ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li>));
+export default function IngredientsList({ ref, ingredients, generateRecipe }) {
+    const ingredientsListItems = ingredients.map((ingredient, index) => (
+        <li key={index}>{ingredient}</li>
+    ));
 
     return (
-        <section>
-            {ingredients.length > 0 ?
-                    <h2 className="ingredients--header">Ingrediënts on hand:</h2> :
-                    <h2 className="ingredients--header">Get started by adding ingredients</h2> }
-            {ingredients.length && <ul className="ingredients-list">{ingredientsListItems}</ul>}
-            {ingredients.length > 3 &&
-                <div ref={ref} className="generateRecipe">
-                    <div className="generateRecipe--text">
+        <section className={styles.section}>
+            {ingredients.length > 0 ? (
+                <h2 className={styles.ingredientsHeader}>Ingrediënts on hand:</h2>
+            ) : (
+                <h2 className={styles.ingredientsHeader}>Get started by adding ingredients</h2>
+            )}
+            {ingredients.length > 0 && (
+                <ul className={styles.ingredientsList}>{ingredientsListItems}</ul>
+            )}
+            {ingredients.length > 3 && (
+                <div ref={ref} className={styles.generateRecipe}>
+                    <div className={styles.generateRecipeText}>
                         <h2>Ready for a recipe?</h2>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
-                    <button className="generateRecipe--button"
-                            onClick={() => generateRecipe()}>
+                    <button
+                        className={styles.generateRecipeButton}
+                        onClick={generateRecipe}
+                    >
                         Get a recipe
                     </button>
                 </div>
-            }
+            )}
         </section>
-    )
+    );
 }

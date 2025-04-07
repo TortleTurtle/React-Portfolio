@@ -1,21 +1,22 @@
 import markerIcon from "../assets/marker.png"
+import styles from "../TravelJournal.module.css"
 
 export default function Entry({img, title, country, googleMapsLink, dates, text}) {
 
     return (
-        <article className="entry">
-            <img className="entry__img" src={img.src} alt={img.alt}/>
-            <div className="entry__content">
-                <div className="entry__header">
+        <article className={styles.entry}>
+            <img className={styles.entryImg} src={img.src} alt={img.alt}/>
+            <div className={styles.entryContent}>
+                <div className={styles.entryHeader}>
                     <img src={markerIcon} alt="Map marker icon"/>
                     <span>{country}</span>
                     <a href={googleMapsLink}>View on Google Maps</a>
                 </div>
                 <h2>{title}</h2>
-                <p className="entry__travel-period">
+                <p className={styles.entryTravelPeriod}>
                     {dates}
                 </p>
-                <p className="entry__description">
+                <p className={styles.entryDescription}>
                     {text}
                 </p>
             </div>

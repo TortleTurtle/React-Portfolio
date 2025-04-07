@@ -1,6 +1,6 @@
 import Header from "./components/Header.jsx";
 import Main from "./components/Main.jsx";
-import './index.css'
+import './MemeGenerator.module.css'
 
 export default function MemeGenerator() {
     return (

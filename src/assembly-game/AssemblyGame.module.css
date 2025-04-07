@@ -1,8 +1,11 @@
-body {
+.main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    height: 100%;
 
     color: #F9F4DA;
     text-align: center;
@@ -11,13 +14,7 @@ body {
     background: #282726;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.header, .message_box {
+.header, .messageBox {
     max-width: 75ch;
 }
 
@@ -30,7 +27,7 @@ main {
     font-size: 1rem;
 }
 
-.message_box {
+.messageBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,28 +39,28 @@ main {
     border: none;
     border-radius: 5px;
 }
-.message_box-success {
+.messageBoxSuccess {
     background: #10A95B;
 }
-.message_box-error {
+.messageBoxError {
     background: #BA2A2A;
 }
-.message_box-info {
+.messageBoxInfo {
     font-style: italic;
     background: #7A5EA7;
 }
 
-.message_box > h2 {
+.messageBox > h2 {
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0;
 }
-.message_box > p {
+.messageBox > p {
     font-size: 1rem;
     margin: 0;
 }
 
-.language_chips {
+.languageChips {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -72,12 +69,12 @@ main {
     max-width: 75ch;
     margin: 1rem 2rem;
 }
-.language_chips--chip {
+.languageChipsChip {
     position: relative;
     border-radius: 5px;
     padding: 0.5rem;
 }
-.language_chips--chip-dead:before {
+.languageChipsChipDead:before {
     content: "💀";
     display: flex;
     justify-content: center;
@@ -94,7 +91,7 @@ main {
     border-radius: 4px;
 }
 
-.word_display, .keyboard {
+.wordDisplay, .keyboard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -102,7 +99,7 @@ main {
 
     max-width: 75ch;
 }
-.word_display--letter, .keyboard--key {
+.wordDisplayLetter, .keyboardKey {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,15 +107,15 @@ main {
     width: 40px;
     height: 40px;
 }
-.word_display--letter {
+.wordDisplayLetter {
     background: #323232;
     border-bottom: 2px solid #F9F4DA;
 }
-.word_display--letter-error {
+.wordDisplayLetterError {
     color: #BA2A2A;
 }
 
-.keyboard--key {
+.keyboardKey {
     color: #000000;
     font-family: inherit;
 
@@ -126,17 +123,17 @@ main {
     border: 1px solid #D7D7D7;
     border-radius: 5px;
 }
-.keyboard--key:hover {
+.keyboardKey:hover {
     cursor: pointer;
 }
-.keyboard--key-success {
+.keyboardKeySuccess {
     background: #10A95B;
 }
-.keyboard--key-error {
+.keyboardKeyError {
     background: #EC5D49;
 }
 
-#newGameBtn {
+.newGameBtn {
     align-self: center;
     padding: 0.5rem 2rem;
 
@@ -148,7 +145,7 @@ main {
     border-radius: 5px;
 }
 
-.sr_only {
+.srOnly {
     position: absolute;
     width: 1px;
     height: 1px;

@@ -1,23 +1,14 @@
-* { box-sizing: border-box; }
-
-html {
-    height: 100%;
-}
-
-body {
-    height: 100%;
-    margin: 0;
-
-    overflow-y: scroll;
-    scrollbar-gutter: stable;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     font-family: "Inter", sans-serif;
     color: #000000;
-
     background-color: #FAFAF8;
 }
 
-header {
+.header {
     display: flex;
     justify-content: center;
     padding: 2rem 1.6rem;
@@ -26,21 +17,24 @@ header {
     background-color: #FFFFFF;
     box-shadow: 0 1px 3px #0000001A;
 }
-nav {
+
+.nav {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-nav > img {
+
+.nav > img {
     height: 2.5rem;
 }
-nav > h1 {
+
+.nav > h1 {
     font-size: 2rem;
     font-weight: 500;
     line-height: 18px;
 }
 
-main {
+.mainContent {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -50,21 +44,21 @@ main {
     width: 100%;
     padding: 2rem 2rem;
 }
-section {
+
+.section {
     width: 100%;
     max-width: 80ch;
 }
 
-.ingredients--form {
+.ingredientsForm {
     display: flex;
     gap: 1rem;
-
     width: 100%;
 }
 
-.ingredients--form > input, .ingredients--form > button {
+.ingredientsForm > input,
+.ingredientsForm > button {
     padding: 0.75rem 0.5rem;
-
     border-radius: 6px;
     box-shadow: 0 1px 3px #0000001A;
 
@@ -72,24 +66,20 @@ section {
     font-size: 1rem;
 }
 
-.ingredients--form > input {
+.ingredientsForm > input {
     flex-grow: 1;
-
-    border: 1px #D1D5DB;
-
+    border: 1px solid #D1D5DB;
     font-weight: 400;
 }
 
-.ingredients--form > button {
+.ingredientsForm > button {
     color: #fff;
     background: #000;
-
     border: none;
-
     font-weight: 500;
 }
 
-.ingredients--form > button:before {
+.ingredientsForm > button:before {
     content: "+";
     margin-right: 0.5ch;
 }
@@ -105,14 +95,17 @@ section {
     background-color: #F0EFEB;
     border-radius: 8px;
 }
-.generateRecipe--text p {
-    color:  #6B7280;
+
+.generateRecipeText p {
+    color: #6B7280;
     margin-bottom: 0;
 }
-.generateRecipe--text h2 {
+
+.generateRecipeText h2 {
     margin-top: 0;
 }
-.generateRecipe--button {
+
+.generateRecipeButton {
     padding: 1rem 0.75rem;
 
     font-family: inherit;
@@ -123,11 +116,13 @@ section {
     border: none;
     border-radius: 8px;
 }
-.suggested-recipe-container {
+
+.suggestedRecipeContainer {
     color: #475467;
     font-weight: 400;
 }
 
-.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+.suggestedRecipeContainer ul li,
+.suggestedRecipeContainer ol li {
     margin-bottom: 8px;
 }

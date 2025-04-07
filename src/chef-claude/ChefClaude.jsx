@@ -1,5 +1,5 @@
 import Header from "./components/Header.jsx";
-import './index.css';
+import './ChefClaude.module.css';
 import Main from "./components/Main.jsx";
 
 export default function ChefClaude() {

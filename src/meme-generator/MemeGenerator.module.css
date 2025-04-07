@@ -1,13 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
+.main {
     font-family: "Karla", sans-serif;
-    margin: 0;
-}
-
-main {
     margin-inline: auto;
     padding: 36px;
     max-width: 600px;
@@ -16,10 +8,13 @@ main {
 .header {
     display: flex;
     align-items: center;
+    padding: 20px;
+
     height: 65px;
     background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+
     color: white;
-    padding: 20px;
+    font-family: "Karla", sans-serif;
 }
 
 .header > img {

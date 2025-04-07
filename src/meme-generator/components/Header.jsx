@@ -1,8 +1,9 @@
 import trollFace from "../assets/troll-face.png"
+import styles from "../MemeGenerator.module.css"
 
 export default function Header() {
     return (
-        <header className="header">
+        <header className={styles.header}>
             <img
                 src={trollFace}
             />

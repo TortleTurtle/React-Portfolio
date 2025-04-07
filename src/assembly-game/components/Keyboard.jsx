@@ -1,3 +1,5 @@
+import styles from "../AssemblyGame.module.css"
+
 export default function Keyboard(props) {
     const letterKeys = renderButtons();
 
@@ -9,26 +11,30 @@ export default function Keyboard(props) {
             const hasBeenGuessed = props.guessedLetters.includes(char);
             const isCorrect = props.word.includes(char);
 
-            const modifier = hasBeenGuessed ? (isCorrect ? " keyboard--key-success" : " keyboard--key-error") : "";
-            let style = "keyboard--key" + modifier;
+            let className = styles.keyboardKey;
+            if (hasBeenGuessed) {
+                className += isCorrect ? ` ${styles.keyboardKeySuccess}` : ` ${styles.keyboardKeyError}`;
+            }
 
             buttons.push(
-                <button key={char}
-                        className={style}
-                        disabled={hasBeenGuessed || props.gameOver}
-                        aria-disabled={hasBeenGuessed || props.gameOver}
-                        aria-label={`Letter ${char}`}
-                        onClick={() => !hasBeenGuessed && props.onKeyPress(char)}>
+                <button
+                    key={char}
+                    className={className}
+                    disabled={hasBeenGuessed || props.gameOver}
+                    aria-disabled={hasBeenGuessed || props.gameOver}
+                    aria-label={`Letter ${char}`}
+                    onClick={() => !hasBeenGuessed && props.onKeyPress(char)}
+                >
                     {char.toUpperCase()}
                 </button>
-            )
+            );
         }
         return buttons;
     }
 
     return (
-        <section className="keyboard">
+        <section className={styles.keyboard}>
             {letterKeys}
         </section>
-    )
+    );
 }

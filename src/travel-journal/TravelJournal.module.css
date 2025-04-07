@@ -1,17 +1,9 @@
-body {
-    margin: 0;
-
-    font-family: "Inter", serif;
-    color: #000000;
-
-    background-color: #FFFFFF;
-}
-
-header {
+.header {
     display: flex;
     justify-content: center;
     padding: 2rem 1.6rem;
 
+    font-family: "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 500;
     line-height: 18px;
@@ -19,20 +11,24 @@ header {
 
     background-color: #F55A5A;
 }
-nav {
+.nav {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-nav > img {
+.nav > img {
     height: 1.5rem;
 }
 
-main {
+.main {
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    font-family: "Inter", sans-serif;
+
+    background-color: #FFFFFF;
 }
 
 /* entry styling */
@@ -43,7 +39,7 @@ main {
     gap: 1rem;
 }
 
-.entry__img {
+.entryImg {
     min-width: 125px;
     max-width: 300px;
     aspect-ratio: 1 / 1.344;
@@ -51,38 +47,38 @@ main {
     border-radius: 5px;
 }
 
-.entry__content h2 {
+.entryContent h2 {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2rem;
     margin: 0.5rem 0 1rem 0 ;
 }
 
-.entry__header {
+.entryHeader {
     display: flex;
     align-items: center;
     gap: 6px;
     font-size: 0.875rem;
     line-height: 1rem;
 }
-.entry__header > img {
+.entryHeader > img {
     height: 1rem;
 }
-.entry__header > span {
+.entryHeader > span {
     text-transform: uppercase;
     letter-spacing: 0.25ch;
 }
-.entry__header > a {
+.entryHeader > a {
     color: #918E9B;
 }
-.entry__header > a:hover {
+.entryHeader > a:hover {
     color: #F55A5A;
 }
 
-.entry__travel-period {
+.entryTravelPeriod {
     font-weight: 700;
 }
-.entry__description {
+.entryDescription {
     font-weight: 400;
     max-width: 75ch;
 }

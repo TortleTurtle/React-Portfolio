@@ -1,15 +1,17 @@
-export function MessageBox(props) {
+import styles from "../AssemblyGame.module.css"
 
-    //Finally found a (completely unnecessary) use case for var.
+export function MessageBox(props) {
+    let modifier;
+
     switch (props.type) {
         case messageTypes.SUCCESS:
-            var modifier = "message_box-success"; // this works because the var declaration gets 'hoisted'
+            modifier = styles.messageBoxSuccess;
             break;
         case messageTypes.ERROR:
-            modifier = "message_box-error";
+            modifier = styles.messageBoxError;
             break;
         case messageTypes.INFO:
-            modifier = "message_box-info";
+            modifier = styles.messageBoxInfo;
             break;
         default:
             modifier = "";
@@ -17,9 +19,10 @@ export function MessageBox(props) {
     }
 
     return (
-        <section className={"message_box " + modifier}
-                 aria-live="polite"
-                 role="status"
+        <section
+            className={`${styles.messageBox} ${modifier}`}
+            aria-live="polite"
+            role="status"
         >
             {props.title && <h2>{props.title}</h2>}
             {props.subtitle && <p>{props.subtitle}</p>}
