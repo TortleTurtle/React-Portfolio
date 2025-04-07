@@ -1,14 +1,32 @@
 import {useEffect, useRef, useState} from "react";
 import Die from "./components/Die.jsx";
+import Confetti from "react-confetti";
 import "./index.css"
 
 export default function Tenzies() {
     const [dice, setDice] = useState(() => generateNewDice())
+    const [viewport, setViewport] = useState(
+        {
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
 
     const rollButton = useRef(null);
 
     const hasWon = checkDice();
 
+    useEffect(() => {
+        const handleResize = () => {
+            setViewport({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        }
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+
+    }, []);
     useEffect(() => {
         if (hasWon) {
             rollButton.current.focus();
@@ -71,6 +89,7 @@ export default function Tenzies() {
 
     return (
         <main>
+            {hasWon & <Confetti width={viewport.width} height={viewport.height}/>}
             <section>
                 <h1>Tenzies</h1>
                 <p>Roll until all dice have the same number of eyes</p>

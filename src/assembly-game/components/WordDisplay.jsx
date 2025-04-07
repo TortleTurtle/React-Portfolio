@@ -18,8 +18,8 @@ export default function WordDisplay(props) {
         const lastGuessedLetter = props.guessedLetters[props.guessedLetters.length - 1];
         if (!lastGuessedLetter) return "";
 
-        const lastGuessedLettterCorrect = props.word.includes(lastGuessedLetter);
-        if (lastGuessedLettterCorrect) return (
+        const lastGuessedLetterCorrect = props.word.includes(lastGuessedLetter);
+        if (lastGuessedLetterCorrect) return (
             <p>{`Correct! The letter ${lastGuessedLetter} is in the word.`}</p>
         );
         return <p>{`Incorrect, the letter ${lastGuessedLetter} is not in the word.`}</p>
