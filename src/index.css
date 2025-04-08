@@ -11,8 +11,3 @@ body, main, #root {
     min-height: 100%;
     margin: 0;
 }
-
-body {
-    overflow-y: scroll;
-    scrollbar-gutter: stable;
-}

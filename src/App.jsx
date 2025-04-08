@@ -1,21 +1,24 @@
-import AssemblyGame from "./assembly-game/AssemblyGame.jsx";
-import {BrowserRouter, Route, Routes} from "react-router";
-import Tenzies from "./tenzies/Tenzies.jsx";
-import ChefClaude from "./chef-claude/ChefClaude.jsx";
-import MemeGenerator from "./meme-generator/MemeGenerator.jsx";
-import TravelJournal from "./travel-journal/TravelJournal.jsx";
-
+import styles from "./App.module.css";
+import ProjectCard from "./ProjectCard.jsx";
 export default function App() {
-
+    /*
+    * TODO: Store projects in array.
+    *  - description as JSX
+    */
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/assembly-game" element={<AssemblyGame/>} />
-                <Route path="/tenzies" element={<Tenzies/>} />
-                <Route path="/chef-claude" element={<ChefClaude/>} />
-                <Route path="/meme-generator" element={<MemeGenerator/>} />
-                <Route path="/travel-journal" element={<TravelJournal/>} />
-            </Routes>
-        </BrowserRouter>
+        <>
+            <main className={styles.main}>
+                <header className={styles.header}>
+                    <h1>React Portfolio</h1>
+                </header>
+                <nav className={styles.nav}>
+                    <ProjectCard/>
+                    <ProjectCard/>
+                    <ProjectCard/>
+                    <ProjectCard/>
+                    <ProjectCard/>
+                </nav>
+            </main>
+        </>
     )
 }

@@ -1,0 +1,88 @@
+.header {
+    width: 100%;
+    padding: 1rem 1rem;
+
+    font-family: "Inter", sans-serif;
+    color: #00adb5;
+
+    background: #101623;
+    border-bottom: 1px solid #00adb5;
+}
+.header > h1 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    gap: 2rem;
+
+    font-family: "Inter", sans-serif;
+    color: #FFFFFF;
+
+    background: #161f33;
+}
+
+.nav {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 340px);
+    gap: 2rem;
+
+    max-width: calc(3 * 340px + 2 * 2rem);
+}
+
+.cardLink {
+    display: block;
+    width: auto;
+    height: auto;
+
+    text-decoration: none;
+    color: inherit;
+}
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+
+    padding: 1rem;
+
+
+    background-color: #101623;
+    box-shadow: 0 0 5px 2px #f09a2a;
+    border-radius: 5px;
+}
+.projectCard > img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 5px;
+}
+.projectCard > button {
+    align-self: end;
+
+    padding: 0.5rem 1rem;
+
+    font-family: inherit;
+    font-weight: 600;
+    color: #000000;
+
+    border: none;
+    border-radius: 5px;
+    background: #f09a2a;
+
+    cursor: pointer;
+}
+.projectCard > h2 {
+    margin: 1rem 0 0.5rem 0;
+    color: #00adb5;
+}
+.projectCard > p {
+    margin: 0;
+}
+.projectCard > ul {
+    margin-top: 0.25rem;
+}
