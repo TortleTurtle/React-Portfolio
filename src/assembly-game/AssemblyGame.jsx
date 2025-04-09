@@ -31,6 +31,7 @@ export default function AssemblyGame() {
         }
     }, []);
 
+    //getFarewell text returns a random message. So without useEffect message changes even if wrongGuessCount stays the same.
     useEffect(() => {
         function configMessage() {
             if (hasLost) return {
