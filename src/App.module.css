@@ -56,7 +56,15 @@
     background-color: #101623;
     box-shadow: 0 0 5px 2px #f09a2a;
     border-radius: 5px;
+
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 }
+
+.projectCard:hover {
+    box-shadow: 0 0 6px 3px #00adb5;
+    transform: scale(1.05);
+}
+
 .projectCard > img {
     width: 100%;
     height: auto;
@@ -79,6 +87,11 @@
     background: #f09a2a;
 
     cursor: pointer;
+
+    transition: background-color 0.3s ease-out;
+}
+.fakeButtonHover {
+    background: #00adb5;
 }
 
 .projectCard > h2 {
@@ -90,4 +103,7 @@
 }
 .projectCard > ul {
     margin: 0.25rem 0;
+}
+.projectCard > ul:nth-last-child(2), .projectCard > p:nth-last-child(2) {
+    margin-bottom: 1rem;
 }

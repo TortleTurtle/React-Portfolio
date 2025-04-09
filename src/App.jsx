@@ -11,26 +11,53 @@ export default function App() {
     const projects = [
         {
             title: "Assembly Game",
-            description: <p>A hangman type game where te player has to guess a word related to front-end technologies.</p>,
+            description: <>
+                <p>A hangman type game where te player has to guess a word related to front-end technologies. A more complex project then Tenzies. Challenges were:</p>
+                <ul>
+                    <li>State management & derived state</li>
+                    <li>When to use side effects.</li>
+                    <li>complex dynamic rendering such as rendering specific letters</li>
+                </ul>
+            </>,
             uri: "/assembly-game",
             thumbnail: assemblyGameThumbnail
         },
         {
             title: "Tenzies",
-            description: <p>A simple game where the player has to get 10 dice with the same amount of eyes. Utilized all previous technologies</p>,
+            description: <>
+                <p>A simple game where the player has to get 10 dice with the same amount of eyes. Putting into practice all concepts learned until now. Challenges were:</p>
+                <ul>
+                    <li>What should be state and what can be derived from state?</li>
+                    <li>When to use side effects.</li>
+                </ul>
+            </>,
             uri: "/tenzies",
             thumbnail: tenziesThumbnail
         },
         {
             title: "Meme Generator",
-            description: <p>A simple meme generator</p>,
+            description: <>
+                <p>A simple meme generator. This project focussed on:</p>
+                <ul>
+                    <li>Controlled components</li>
+                    <li>Functional programming & React</li>
+                    <li>Side Effects</li>
+                </ul>
+            </>,
             uri: "/meme-generator",
             thumbnail: memeGeneratorThumbnail
         },
         {
             title: "Chef Claude",
             description: <>
-                <p>A simple tool to generate a recipe with ingrediënts in your house! Not functional in deployed environment to hide api-key</p>
+                <p>An interactive app to generate a recipe with ingrediënts you have available! This project focussed on:</p>
+                <ul>
+                    <li>Event listeners</li>
+                    <li>State & state management</li>
+                    <li>Conditional rendering</li>
+                    <li>Forms</li>
+                </ul>
+                <p>Note: Since this is a purely front-end app I am unable to hide my apikey. Fetching from the mistral AI will not work. A fallback has been implemented do demonstrate interactivity.</p>
             </>,
             uri: "/chef-claude",
             thumbnail: chefClaudeThumbnail
@@ -38,7 +65,7 @@ export default function App() {
         {
             title: "Travel Journal",
             description: <>
-                <p>Simple project where I learned:</p>
+                <p>Very basic project to understand:</p>
                 <ul>
                     <li>Reusability</li>
                     <li>Props</li>
