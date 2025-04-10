@@ -1,8 +1,38 @@
-# React + Vite
+# React Portfolio
+Projects from scrimba's react course to familiarize myself with the React framework.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+View projects live on: https://tortleturtle.github.io/React-Portfolio/
 
-Currently, two official plugins are available:
+## Projects
+### Assembly Game
+Hangman style game where the player has to guess words related to front-end technologies. Some challenges were:
+- State management & derived state
+- When to use sideEffects
+- Complex conditional rendering, such as rendering specific letters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tenzies
+Simple dice game where the player has to 10 dice with the same amount of eyes. Some challenges were:
+- What should be state and what can be derived from state.
+- When to use side effects.
+
+### Meme Generator
+A simple meme generator.
+- Controlled components.
+- Functional programming in React.
+- Side Effects
+
+### Chef Claude
+Interactive webapp to generate a recipe with ingredients available.
+- Event Listeners
+- State & state management
+- Conditional Rendering
+- Forms
+
+Note: Deployed version uses a fallback response from the api as secrets cannot be hidden on the client side.
+
+### Travel Journal
+Very simple data driven app.
+- Reusability
+- Props
+- Creating components from arrays
+- CSS / Styling practice.
