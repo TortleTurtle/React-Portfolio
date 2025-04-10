@@ -32,6 +32,7 @@
     grid-template-columns: repeat(auto-fit, 340px);
     gap: 2rem;
 
+    width: 100%;
     max-width: calc(3 * 340px + 2 * 2rem);
 }
 
