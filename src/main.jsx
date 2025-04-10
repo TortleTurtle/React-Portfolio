@@ -1,7 +1,7 @@
 import {createRoot} from "react-dom/client"
 import App from "./App";
 import './index.css'
-import {BrowserRouter, Route, Routes} from "react-router";
+import {HashRouter, Route, Routes} from "react-router";
 import AssemblyGame from "./assembly-game/AssemblyGame.jsx";
 import Tenzies from "./tenzies/Tenzies.jsx";
 import ChefClaude from "./chef-claude/ChefClaude.jsx";
@@ -9,7 +9,7 @@ import MemeGenerator from "./meme-generator/MemeGenerator.jsx";
 import TravelJournal from "./travel-journal/TravelJournal.jsx";
 
 const root = createRoot(document.getElementById("root"))
-root.render(<BrowserRouter>
+root.render(<HashRouter>
     <Routes>
         <Route path="/" index element={<App/>}/>
         <Route path="/assembly-game" element={<AssemblyGame/>} />
@@ -18,4 +18,4 @@ root.render(<BrowserRouter>
         <Route path="/meme-generator" element={<MemeGenerator/>} />
         <Route path="/travel-journal" element={<TravelJournal/>} />
     </Routes>
-</BrowserRouter>)
+</HashRouter>)
